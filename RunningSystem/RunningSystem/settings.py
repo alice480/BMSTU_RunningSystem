@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'UserData'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +50,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
 
 ROOT_URLCONF = 'RunningSystem.urls'
 
@@ -74,9 +80,13 @@ WSGI_APPLICATION = 'RunningSystem.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'RunningSystem',
+        'USER': 'alice',
+        'PASSWORD': 'degira2023',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
