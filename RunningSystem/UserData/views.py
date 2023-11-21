@@ -1,5 +1,7 @@
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.permissions import AllowAny
 from .serializers import *
 
 
@@ -11,3 +13,14 @@ def users_list(request):
         return Response(serializer.data)
     else:
         print('post')
+
+
+class Registration(generics.CreateAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = UserSerializer
+
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(True)
