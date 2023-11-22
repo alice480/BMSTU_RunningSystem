@@ -1,1 +1,4 @@
-./myvenv
+RunningSystem/__pycache__/*
+frontend/node_modules
+RunningSystem/UserData/migrations
+RunningSystem/UserData/__pycache__/
