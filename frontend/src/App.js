@@ -1,32 +1,20 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Navigate,
-  useLocation,
-} from 'react-router-dom';
-// import Homepage from './views/Homepage'
-import Registerpage from './views/Registerpage'
-// import Loginpage from './views/Loginpage'
-// import Dashboard from './views/Dashboard'
-// import Navbar from './views/Navbar'
+import './App.css';
+import React, { useState } from "react";
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+// custom components
+import Home from './pages/HomePage';
+import About from './pages/AboutPage';
 
 function App() {
   return (
-    <Route component={Registerpage} path="/register" exact />
-    // <Router>
-    //   <AuthProvider>
-    //     < Navbar/>
-    //     <Switch>
-    //       <PrivateRoute component={Dashboard} path="/dashboard" exact />
-    //       <Route component={Loginpage} path="/login" />
-    //       <Route component={Homepage} path="/" exact />
-    //     </Switch>
-    //   </AuthProvider>
-    // </Router>
-  )
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
