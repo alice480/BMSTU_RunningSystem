@@ -6,14 +6,14 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['username', 'surname', 'father_name', 'email', 'password']
+        fields = ['name', 'surname', 'father_name', 'email', 'password']
         read_only_field = ['id', 'created_at']
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'surname', 'email', 'password']
+        fields = ['name', 'surname', 'email', 'password']
         read_only_field = ['id', 'created_at']
 
 

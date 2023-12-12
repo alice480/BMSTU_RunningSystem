@@ -5,9 +5,9 @@ import jwt
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, username, surname, email, password, **kwargs):
+    def create_user(self, name, surname, email, password, **kwargs):
         # Create and return a User with name, surname, email, password
-        if username is None:
+        if name is None:
             raise TypeError('Users must have a username.')
         if surname is None:
             raise TypeError('Users must have a surname.')
@@ -16,21 +16,20 @@ class UserManager(BaseUserManager):
         if password is None:
             raise TypeError('Users must have a password.')
 
-        user = self.model(username=username, email=self.normalize_email(email))
-        user.set_surname(surname)
+        user = self.model(name=name, surname=surname, email=self.normalize_email(email))
         user.set_password(password)
         user.save()
 
         return user
 
-    def create_superuser(self, username, email):
+    def create_superuser(self, name, email):
         # Create and return a User with superuser permissions
-        if username is None:
+        if name is None:
             raise TypeError('Superusers must have a username.')
         if email is None:
             raise TypeError('Superusers must have an email.')
 
-        user = self.create_user(username, email)
+        user = self.create_user(name, email)
         user.is_staff = True
         user.save()
 
@@ -49,7 +48,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['name', 'surname']
 
     objects = UserManager()
 

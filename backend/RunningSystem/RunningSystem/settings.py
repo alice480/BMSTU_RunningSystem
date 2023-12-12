@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -207,6 +206,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'sinyavina2003@yandex.ru'
-EMAIL_HOST_PASSWORD = 'yuxrlbilwsngkrzt'
+DEFAULT_FROM_EMAIL = 'sinyavina2003@yandex.ru'
+EMAIL_HOST_PASSWORD = 'xsqybewvbjferooa'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
