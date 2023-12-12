@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar/Navbar'
 function Home() {
     return (
         <div>
-          <Navbar reloadnavbar={false}/>
+          <Navbar/>
         </div>
       );
 }
