@@ -1,39 +1,5 @@
 from django.db import models
-from django.conf import settings
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-import jwt
-
-
-class UserManager(BaseUserManager):
-    def create_user(self, name, surname, email, password, **kwargs):
-        # Create and return a User with name, surname, email, password
-        if name is None:
-            raise TypeError('Users must have a username.')
-        if surname is None:
-            raise TypeError('Users must have a surname.')
-        if email is None:
-            raise TypeError('Users must have an email.')
-        if password is None:
-            raise TypeError('Users must have a password.')
-
-        user = self.model(name=name, surname=surname, email=self.normalize_email(email))
-        user.set_password(password)
-        user.save()
-
-        return user
-
-    def create_superuser(self, name, email):
-        # Create and return a User with superuser permissions
-        if name is None:
-            raise TypeError('Superusers must have a username.')
-        if email is None:
-            raise TypeError('Superusers must have an email.')
-
-        user = self.create_user(name, email)
-        user.is_staff = True
-        user.save()
-
-        return user
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -49,8 +15,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name', 'surname']
-
-    objects = UserManager()
 
     class Meta:
         verbose_name = 'Пользователь'
