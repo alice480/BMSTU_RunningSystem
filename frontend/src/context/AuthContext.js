@@ -12,16 +12,16 @@ export const AuthProvider = ({children}) => {
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwtDecode(localStorage.getItem('authTokens')) : null)
     let [loading, setLoading] = useState(true)
 
-    let navigate = useNavigate();
+    const history = useNavigate()
 
     let loginUser = async (e )=> {
         e.preventDefault()
-        let response = await fetch('http://127.0.0.1:8000/api/token/', {
+        let response = await fetch('http://127.0.0.1:8000/auth/users/', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
+            body:JSON.stringify({'email':e.target.email.value, 'password':e.target.password.value})
         })
         let data = await response.json()
 
@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
             setAuthTokens(data)
             setUser(jwtDecode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate.push('/')
+            history.push('/')
         }else{
             alert('Something went wrong!')
         }
@@ -40,7 +40,7 @@ export const AuthProvider = ({children}) => {
         setAuthTokens(null)
         setUser(null)
         localStorage.removeItem('authTokens')
-        navigate.push('/login')
+        history.push('/login')
     }
 
 

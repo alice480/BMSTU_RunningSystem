@@ -1,8 +1,7 @@
-nav {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+.navbar-default {
+    background-color: #7b68ee;
+    border-color: #7b68ee;
+    border-radius: 0;
 }
 
 nav svg {
@@ -61,7 +60,6 @@ nav .searchbar button {
     border: none;
     background-color: transparent;
     cursor: pointer;
-
 }
 
 nav .s1 .right {
@@ -71,104 +69,6 @@ nav .s1 .right {
     align-items: center;
 }
 
-nav .cart {
-    position: relative;
-    margin: 0px 20px;
-}
-
-nav .s2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    gap: 3%;
-}
-
-nav .s2 a{
-    text-decoration: none;
+.link {
     color: black;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-nav .s2 a:hover{
-    color: var(--col1);
-}
-
-
-nav .s3 {
-    display: none;
-}
-
-@media screen and (max-width: 768px){
-    nav{
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 20px;
-    }
-
-    nav .s1{
-        display: none;
-    }
-
-    nav .s2{
-        display: none;
-    }
-
-
-    nav .s3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /* align-items: center; */
-        padding: 0px;
-        width: 100%;
-    }
-
-    nav .s31 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        padding: 20px 0px;
-    }
-
-    nav .searchbar {
-        width: 100%;
-        margin: 10px 0px;
-        padding: 10px;
-    }
-    nav .s3 ul{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        padding: 0px;
-        margin: 0px;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-    }
-    nav .s3 ul li{
-        list-style: none;
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        background-color: var(--col1);
-        width: 150px;
-        padding: 10px;
-        border-radius: 5px;
-        color: white;
-    }
-    nav .s3 .s32 svg{
-        color: white;
-    }
-
-    nav #dropdown-basic{
-        color: white;
-    }
 }
